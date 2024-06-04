@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',                                               # DRF
     'rest_framework_simplejwt',                                     # DRF JWT
     'corsheaders',                                                  # CORS
+    'rest_framework_simplejwt.token_blacklist',                     # DRF JWT Blacklist [It is used to blacklist the token after logout.]
 ]
 
 REST_FRAMEWORK = {                                                  # DRF settings
@@ -55,8 +56,8 @@ REST_FRAMEWORK = {                                                  # DRF settin
 SIMPLE_JWT = {                                                      # DRF JWT settings
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "ROTATE_REFRESH_TOKENS": False,
-    "BLACKLIST_AFTER_ROTATION": False,
+    "ROTATE_REFRESH_TOKENS": True,         # False by default [When it makees True, it will rotate the refresh token after every request.]
+    "BLACKLIST_AFTER_ROTATION": True,      # False by default [When it makes True, it will blacklist the old refresh token after rotation.]
     "UPDATE_LAST_LOGIN": False,
 
     "ALGORITHM": "HS256",
@@ -177,3 +178,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True
