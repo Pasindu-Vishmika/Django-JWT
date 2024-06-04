@@ -1,10 +1,20 @@
+#python
 *.log
 *.pot
 *.pyc
 
+#environment
 env/
 
+#django
 backend/api/migrations/*
 __pycache__/*
+
+#database
 db.sqlite3
+
+#vscode
 .vscode/
+
+#Node-modules
+frontend/node_modules
