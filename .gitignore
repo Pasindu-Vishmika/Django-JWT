@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+
+env/
+
+backend/api/migrations/*
+__pycache__/*
+db.sqlite3
+.vscode/
